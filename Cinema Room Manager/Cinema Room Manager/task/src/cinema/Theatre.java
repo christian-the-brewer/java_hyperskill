@@ -1,5 +1,7 @@
 package cinema;
 
+import java.util.Scanner;
+
 public class Theatre {
     private int rows, seatsPerRow, chosenRow, chosenSeat;
     int frontTicket = 10, backTicket = 8;
@@ -14,6 +16,7 @@ public class Theatre {
     public Theatre() {
 
     }
+
 
     public int getTicketPrice() {
         if (rows * seatsPerRow <= 60) {
@@ -48,15 +51,28 @@ public class Theatre {
         seatingMatrix = new String[rows][seatsPerRow];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < seatsPerRow; j++) {
-                if (chosenRow == (i - 2) && chosenSeat == (j - 3)) {
-                    seatingMatrix[i][j] = "B";
-                } else {
                     seatingMatrix[i][j] = "S";
-                }
-
             }
         }
+        if (chosenSeat != 0) {
+            seatingMatrix[chosenRow - 1][chosenSeat - 1] = "B";
+        }
     }
+
+    public void printMenu() {
+        System.out.println("1. Show the seats");
+        System.out.println("2. Buy a ticket");
+        System.out.println("0. Exit");
+    }
+
+    public void buyTicket(Scanner scanner) {
+        System.out.println("Enter a row number:");
+        setChosenRow(scanner.nextInt());
+        System.out.println("Enter a seat number in that row:");
+        setChosenSeat(scanner.nextInt());
+        System.out.println("Ticket price: $" + getTicketPrice());
+    }
+
     public void printSeating() {
         System.out.println("Cinema:");
         for (int i = 0; i <= rows; i++) {
