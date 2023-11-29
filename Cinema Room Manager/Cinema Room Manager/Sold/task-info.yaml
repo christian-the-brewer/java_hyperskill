@@ -130,9 +130,9 @@ files:
   - name: src/cinema/ProfitCalculator.java
     visible: true
     learner_created: true
-feedback_link: https://hyperskill.org/projects/133/stages/710/implement#comment
+feedback_link: https://hyperskill.org/learn/step/11106#comment
 status: Solved
 feedback:
   message: Congratulations!
   time: "Tue, 28 Nov 2023 15:07:31 UTC"
-record: -1
+record: 3
