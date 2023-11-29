@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Indexing rules/Indexing rules.iml" filepath="$PROJECT_DIR$/Indexing rules/Indexing rules.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Multidimensional array.iml" filepath="$PROJECT_DIR$/.idea/Multidimensional array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Practical applications/Practical applications.iml" filepath="$PROJECT_DIR$/Practical applications/Practical applications.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Rotate a rectangle array/Rotate a rectangle array.iml" filepath="$PROJECT_DIR$/Rotate a rectangle array/Rotate a rectangle array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Theory/Theory.iml" filepath="$PROJECT_DIR$/Theory/Theory.iml" />
+    </modules>
+  </component>
+</project>
