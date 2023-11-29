@@ -47,15 +47,24 @@ public class Theatre {
         this.chosenSeat = seat;
     }
 
+    public void createSeatingString() {
+        this.seatingMatrix = new String[rows][seatsPerRow];
+    }
+
     public void setSeatingMatrix() {
-        seatingMatrix = new String[rows][seatsPerRow];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < seatsPerRow; j++) {
-                    seatingMatrix[i][j] = "S";
+                if (this.seatingMatrix[i][j] == null) {
+                    this.seatingMatrix[i][j] = "S";
+                } else if (this.seatingMatrix[i][j].equals("S")) {
+                    this.seatingMatrix[i][j] = "S";
+                } else if (this.seatingMatrix[i][j].equals("B")) {
+                    this.seatingMatrix[i][j] = "B";
+                }
             }
         }
         if (chosenSeat != 0) {
-            seatingMatrix[chosenRow - 1][chosenSeat - 1] = "B";
+            this.seatingMatrix[chosenRow - 1][chosenSeat - 1] = "B";
         }
     }
 
@@ -71,6 +80,7 @@ public class Theatre {
         System.out.println("Enter a seat number in that row:");
         setChosenSeat(scanner.nextInt());
         System.out.println("Ticket price: $" + getTicketPrice());
+        setSeatingMatrix();
     }
 
     public void printSeating() {
@@ -88,9 +98,9 @@ public class Theatre {
                 } else if (j == 0) {
                         System.out.print(i + " ");
                 } else if (j == seatsPerRow) {
-                    System.out.println(seatingMatrix[i - 1][j - 1]);
+                    System.out.println(this.seatingMatrix[i - 1][j - 1]);
                 } else {
-                    System.out.print(seatingMatrix[i - 1][j - 1] + " ");
+                    System.out.print(this.seatingMatrix[i - 1][j - 1] + " ");
                 }
             }
         }

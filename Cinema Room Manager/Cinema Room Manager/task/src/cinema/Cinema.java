@@ -16,6 +16,7 @@ public class Cinema {
         cinema.setRows(scanner.nextInt());
         System.out.println("Enter the number of seats in each row:");
         cinema.setSeatsPerRow(scanner.nextInt());
+        cinema.createSeatingString();
         cinema.setSeatingMatrix();
 
         while (menuOpen) {
