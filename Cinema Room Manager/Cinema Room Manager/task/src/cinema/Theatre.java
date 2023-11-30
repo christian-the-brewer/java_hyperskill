@@ -20,12 +20,13 @@ public class Theatre {
 
     }
 
-    public double getCurrentIncome() {
+    public int getCurrentIncome() {
         return this.currentIncome;
     }
 
     public double getPercentageTicketsSold() {
-        return  ((double) ticketsPurchased) / rows * seatsPerRow;
+        double totalSeats = rows * seatsPerRow;
+        return  (this.ticketsPurchased / totalSeats) * 100.00;
     }
 
     public int getSoldOutIncome() {
@@ -98,6 +99,10 @@ public class Theatre {
         }
     }
 
+    public String[][] getSeatingMatrix() {
+        return this.seatingMatrix;
+    }
+
     public void printMenu() {
         System.out.println("1. Show the seats");
         System.out.println("2. Buy a ticket");
@@ -107,9 +112,9 @@ public class Theatre {
 
     public void printStatistics() {
         System.out.println("Number of purchased tickets: " + getTicketsPurchased());
-        System.out.printf("Percentage: %.2f%n", getPercentageTicketsSold());
-        System.out.println("Current income: " + getCurrentIncome());
-        System.out.println("Total income: " + getSoldOutIncome());
+        System.out.printf("Percentage: %.2f%%%n", getPercentageTicketsSold());
+        System.out.println("Current income: $" + getCurrentIncome());
+        System.out.println("Total income: $" + getSoldOutIncome());
     }
 
     public void buyTicket(Scanner scanner) {
@@ -118,22 +123,33 @@ public class Theatre {
             setChosenRow(scanner.nextInt());
             System.out.println("Enter a seat number in that row:");
             setChosenSeat(scanner.nextInt());
-            if (chosenRow <= rows && chosenSeat <= seatsPerRow && chosenRow > 0 && chosenSeat > 0) {
-                if () {
-                    System.out.println("That ticket has already been purchased!");
-            }
-
-            } if (chosenRow > rows || chosenRow < 1 || chosenSeat > seatsPerRow || chosenSeat < 1 && !this.seatingMatrix[chosenRow][chosenSeat].equals("B")) {
-                System.out.println("Wrong Input");
-            } else
-            {
+            //check for out of bound selection
+            if (this.chosenRow < 1 || this.chosenRow > rows) {
+                System.out.println("Wrong input!");
+            } else if (this.chosenSeat < 1 || this.chosenSeat > seatsPerRow) {
+                System.out.println("Wrong input!");
+            } else if (this.seatingMatrix[this.chosenRow - 1][this.chosenSeat - 1].equals("B")) {
+                System.out.println("That ticket has already been purchased!");
+            } else {
                 break;
             }
+
+//            if (this.chosenRow <= rows && this.chosenSeat <= seatsPerRow && this.chosenRow > 0 && this.chosenSeat > 0) {
+//                if () {
+//                    System.out.println("That ticket has already been purchased!");
+//            }
+//
+//            } if (this.chosenRow > rows || this.chosenRow < 1 || this.chosenSeat > seatsPerRow || this.chosenSeat < 1 && !this.seatingMatrix[chosenRow][chosenSeat].equals("B")) {
+//                System.out.println("Wrong Input");
+//            } else
+//            {
+//                break;
+//            }
         }
         System.out.println("Ticket price: $" + getTicketPrice());
         setSeatingMatrix();
         setTicketsPurchased();
-        addSeatToArray();
+
     }
 
     private void addSeatToArray(int row, int seat) {

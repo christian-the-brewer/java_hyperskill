@@ -666,24 +666,15 @@ files:
               this.chosenSeat = seat;
           }
       
-          public void createSeatingString() {
-              this.seatingMatrix = new String[rows][seatsPerRow];
-          }
-      
           public void setSeatingMatrix() {
+              seatingMatrix = new String[rows][seatsPerRow];
               for (int i = 0; i < rows; i++) {
                   for (int j = 0; j < seatsPerRow; j++) {
-                      if (this.seatingMatrix[i][j] == null) {
-                          this.seatingMatrix[i][j] = "S";
-                      } else if (this.seatingMatrix[i][j].equals("S")) {
-                          this.seatingMatrix[i][j] = "S";
-                      } else if (this.seatingMatrix[i][j].equals("B")) {
-                          this.seatingMatrix[i][j] = "B";
-                      }
+                          seatingMatrix[i][j] = "S";
                   }
               }
               if (chosenSeat != 0) {
-                  this.seatingMatrix[chosenRow - 1][chosenSeat - 1] = "B";
+                  seatingMatrix[chosenRow - 1][chosenSeat - 1] = "B";
               }
           }
       
@@ -699,7 +690,6 @@ files:
               System.out.println("Enter a seat number in that row:");
               setChosenSeat(scanner.nextInt());
               System.out.println("Ticket price: $" + getTicketPrice());
-              setSeatingMatrix();
           }
       
           public void printSeating() {
@@ -717,9 +707,9 @@ files:
                       } else if (j == 0) {
                               System.out.print(i + " ");
                       } else if (j == seatsPerRow) {
-                          System.out.println(this.seatingMatrix[i - 1][j - 1]);
+                          System.out.println(seatingMatrix[i - 1][j - 1]);
                       } else {
-                          System.out.print(this.seatingMatrix[i - 1][j - 1] + " ");
+                          System.out.print(seatingMatrix[i - 1][j - 1] + " ");
                       }
                   }
               }
@@ -728,8 +718,8 @@ files:
       }
     learner_created: true
 feedback_link: https://hyperskill.org/learn/step/11109#comment
-status: Failed
+status: Solved
 feedback:
-  message: Execution failed
-  time: "Thu, 30 Nov 2023 02:42:17 UTC"
+  message: Congratulations!
+  time: "Thu, 30 Nov 2023 18:15:28 UTC"
 record: -1
