@@ -29,6 +29,9 @@ public class Cinema {
                 case 2:
                     cinema.buyTicket(scanner);
                     break;
+                case 3:
+                    cinema.printStatistics();
+                    break;
                 case 0:
                     menuOpen = false;
                     break;

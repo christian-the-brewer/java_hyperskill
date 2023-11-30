@@ -1,11 +1,14 @@
 package cinema;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Theatre {
-    private int rows, seatsPerRow, chosenRow, chosenSeat;
-    int frontTicket = 10, backTicket = 8;
+    private int rows, seatsPerRow, chosenRow, chosenSeat, soldOutIncome;
+    int frontTicket = 10, backTicket = 8, ticketsPurchased = 0, currentIncome = 0;
     String[][] seatingMatrix;
+    List<String> reservedSeats = new ArrayList<String>();
 
 
     public Theatre(int rows, int seats) {
@@ -17,6 +20,23 @@ public class Theatre {
 
     }
 
+    public double getCurrentIncome() {
+        return this.currentIncome;
+    }
+
+    public double getPercentageTicketsSold() {
+        return  ((double) ticketsPurchased) / rows * seatsPerRow;
+    }
+
+    public int getSoldOutIncome() {
+        if (rows * seatsPerRow > 60) {
+            int totalFrontIncome = (rows / 2) * seatsPerRow * frontTicket;
+            int totalBackIncome = (rows - (rows / 2)) * seatsPerRow * backTicket;
+            return totalFrontIncome + totalBackIncome;
+        } else {
+            return rows * seatsPerRow * frontTicket;
+        }
+    }
 
     public int getTicketPrice() {
         if (rows * seatsPerRow <= 60) {
@@ -24,8 +44,10 @@ public class Theatre {
         } else {
             int rowsInFront = rows / 2;
             if (chosenRow <= rowsInFront) {
+                this.currentIncome +=frontTicket;
                 return frontTicket;
             } else {
+                this.currentIncome += backTicket;
                 return backTicket;
             }
         }
@@ -45,6 +67,14 @@ public class Theatre {
 
     public void setChosenSeat(int seat) {
         this.chosenSeat = seat;
+    }
+
+    public void setTicketsPurchased() {
+        this.ticketsPurchased += 1;
+    }
+
+    public int getTicketsPurchased() {
+        return this.ticketsPurchased;
     }
 
     public void createSeatingString() {
@@ -71,16 +101,43 @@ public class Theatre {
     public void printMenu() {
         System.out.println("1. Show the seats");
         System.out.println("2. Buy a ticket");
+        System.out.println("3. Statistics");
         System.out.println("0. Exit");
     }
 
+    public void printStatistics() {
+        System.out.println("Number of purchased tickets: " + getTicketsPurchased());
+        System.out.printf("Percentage: %.2f%n", getPercentageTicketsSold());
+        System.out.println("Current income: " + getCurrentIncome());
+        System.out.println("Total income: " + getSoldOutIncome());
+    }
+
     public void buyTicket(Scanner scanner) {
-        System.out.println("Enter a row number:");
-        setChosenRow(scanner.nextInt());
-        System.out.println("Enter a seat number in that row:");
-        setChosenSeat(scanner.nextInt());
+        while (true) {
+            System.out.println("Enter a row number:");
+            setChosenRow(scanner.nextInt());
+            System.out.println("Enter a seat number in that row:");
+            setChosenSeat(scanner.nextInt());
+            if (chosenRow <= rows && chosenSeat <= seatsPerRow && chosenRow > 0 && chosenSeat > 0) {
+                if () {
+                    System.out.println("That ticket has already been purchased!");
+            }
+
+            } if (chosenRow > rows || chosenRow < 1 || chosenSeat > seatsPerRow || chosenSeat < 1 && !this.seatingMatrix[chosenRow][chosenSeat].equals("B")) {
+                System.out.println("Wrong Input");
+            } else
+            {
+                break;
+            }
+        }
         System.out.println("Ticket price: $" + getTicketPrice());
         setSeatingMatrix();
+        setTicketsPurchased();
+        addSeatToArray();
+    }
+
+    private void addSeatToArray(int row, int seat) {
+        this.reservedSeats.add(Integer.toString(row) + Integer.toString(seat));
     }
 
     public void printSeating() {
@@ -106,4 +163,6 @@ public class Theatre {
         }
 
     }
+
+
 }
