@@ -1,9 +1,9 @@
 type: choice
 is_multiple_choice: false
 options:
-  - text: 'The number of indices is equal to the dimension of the main array '
   - text: The number of indices is equal to the dimension of the main array minus 1
   - text: One index
+  - text: 'The number of indices is equal to the dimension of the main array '
   - text: It depends on the type of array
 files:
   - name: src/Task.java
