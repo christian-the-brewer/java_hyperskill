@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Coffee_Machine_Simulator_with_Java.iml" filepath="$PROJECT_DIR$/.idea/modules/Coffee_Machine_Simulator_with_Java.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Coffee Machine Simulator with Java/task/Coffee_Machine_Simulator_with_Java.Coffee_Machine_Simulator_with_Java-task.iml" filepath="$PROJECT_DIR$/.idea/modules/Coffee Machine Simulator with Java/task/Coffee_Machine_Simulator_with_Java.Coffee_Machine_Simulator_with_Java-task.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Coffee Machine Simulator with Java/task/build/classes/java/Coffee_Machine_Simulator_with_Java.Coffee_Machine_Simulator_with_Java-task-build-classes-java.iml" filepath="$PROJECT_DIR$/.idea/modules/Coffee Machine Simulator with Java/task/build/classes/java/Coffee_Machine_Simulator_with_Java.Coffee_Machine_Simulator_with_Java-task-build-classes-java.iml" />
@@ -27,6 +28,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Coffee_Machine_Simulator_with_Java.util.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Coffee_Machine_Simulator_with_Java.util.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Coffee_Machine_Simulator_with_Java.util.main.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Coffee_Machine_Simulator_with_Java.util.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/util/Coffee_Machine_Simulator_with_Java.util.test.iml" filepath="$PROJECT_DIR$/.idea/modules/util/Coffee_Machine_Simulator_with_Java.util.test.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/Coffee Machine Simulator with Java.iml" filepath="$PROJECT_DIR$/.idea/Coffee Machine Simulator with Java.iml" />
+>>>>>>> 3dc9ab0407f5f2c20cb326d12b1e9b529cc786bb
     </modules>
   </component>
 </project>

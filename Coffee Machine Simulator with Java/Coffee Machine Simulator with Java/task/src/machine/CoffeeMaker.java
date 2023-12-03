@@ -19,6 +19,13 @@ public class CoffeeMaker {
 
     }
 
+<<<<<<< HEAD
+=======
+    Drink espresso = new Drink(250, 0, 16, 4);
+    Drink latte = new Drink(350, 75, 20, 7);
+    Drink cappuccino = new Drink(200, 100, 12, 6);
+
+>>>>>>> 3dc9ab0407f5f2c20cb326d12b1e9b529cc786bb
     public int getMaxCups() {
         int[] cupsForSupplies = {getWater() / waterPerCup, getCoffee() / coffeePerCup, getMilk() / milkPerCup, getDisposableCups()};
 
@@ -28,6 +35,7 @@ public class CoffeeMaker {
 
 
     public void setWater(int water) {
+<<<<<<< HEAD
         this.water = water;
     }
 
@@ -37,6 +45,29 @@ public class CoffeeMaker {
 
     public void setMilk(int milk) {
         this.milk = milk;
+=======
+        this.water += water;
+    }
+
+    public void setCoffee(int coffee) {
+        this.coffee += coffee;
+    }
+
+    public void setMilk(int milk) {
+        this.milk += milk;
+    }
+
+    public void setDisposableCups(int disposableCups) {
+        this.disposableCups += disposableCups;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
+
+    public void addMoney(int money) {
+        this.money += money;
+>>>>>>> 3dc9ab0407f5f2c20cb326d12b1e9b529cc786bb
     }
 
     public int getCoffee() {
@@ -55,6 +86,81 @@ public class CoffeeMaker {
         return this.disposableCups;
     }
 
+<<<<<<< HEAD
+=======
+    private int getMoney() {
+        return this.money;
+    }
+
+    public void buyDrink(int drink) {
+        int waterNeeded = 0, milkNeeded = 0, coffeeNeeded = 0, cost = 0;
+        switch (drink) {
+            case 1:
+                waterNeeded = espresso.getWater();
+                milkNeeded = espresso.getMilk();
+                coffeeNeeded = espresso.getCoffee();
+                cost = espresso.getCost();
+                break;
+            case 2:
+                waterNeeded = latte.getWater();
+                milkNeeded = latte.getMilk();
+                coffeeNeeded = latte.getCoffee();
+                cost = latte.getCost();
+                break;
+            case 3:
+                waterNeeded = cappuccino.getWater();
+                milkNeeded = cappuccino.getMilk();
+                coffeeNeeded = cappuccino.getCoffee();
+                cost = cappuccino.getCost();
+                break;
+            default:
+                break;
+        }
+        if (enoughSuppliesForDrink(waterNeeded, milkNeeded, coffeeNeeded)) {
+            addMoney(cost);
+            setWater(-waterNeeded);
+            setMilk(-milkNeeded);
+            setCoffee(-coffeeNeeded);
+            setDisposableCups(-1);
+        }
+    }
+
+    public boolean enoughSuppliesForDrink(int waterNeeded, int milkNeeded, int coffeeNeeded) {
+        if (getDisposableCups() < 1) {
+            return false;
+        } else if (waterNeeded > getWater() || milkNeeded > getMilk() || coffeeNeeded > getCoffee()) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    public void printSupplies() {
+        System.out.println("The coffee machine has:");
+        System.out.printf("%d ml of water%n", getWater());
+        System.out.printf("%d ml of milk%n", getMilk());
+        System.out.printf("%d g of coffee beans%n", getCoffee());
+        System.out.printf("%d disposable cups%n", getDisposableCups());
+        System.out.printf("$%d of money%n", getMoney());
+    }
+
+    public void takeMoney(Scanner scanner) {
+        System.out.printf("I gave you $%d%n", getMoney());
+        setMoney(0);
+    }
+
+    public void fillMachine(Scanner scanner) {
+        System.out.println("Write how many ml of water you want to add:");
+        setWater(scanner.nextInt());
+        System.out.println("Write how many ml of milk you want to add:");
+        setMilk(scanner.nextInt());
+        System.out.println("Write how many grams of coffee beans you want to add:");
+        setCoffee(scanner.nextInt());
+        System.out.println("Write how many disposable cups you want to add:");
+        setDisposableCups(scanner.nextInt());
+    }
+>>>>>>> 3dc9ab0407f5f2c20cb326d12b1e9b529cc786bb
 
     public void checkIngredients(Scanner scanner) {
         System.out.println("Write how many ml of water the coffee machine has:");
