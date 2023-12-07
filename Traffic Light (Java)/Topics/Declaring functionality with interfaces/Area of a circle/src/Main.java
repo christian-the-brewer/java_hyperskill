@@ -1,17 +1,7 @@
-class Circle implements Measurable {
-    private double radius;
-
-    public Circle(double radius) {
-        this.radius = radius;
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(Thread.MIN_PRIORITY);
+        System.out.println(Thread.MAX_PRIORITY);
+        System.out.println(Thread.NORM_PRIORITY);
     }
-
-    @Override
-    public double area() {
-        return Math.PI * Math.pow(this.radius, 2);
-    }
-}
-
-// do not change the interface
-interface Measurable {
-    double area();
 }

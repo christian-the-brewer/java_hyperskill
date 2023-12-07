@@ -9,6 +9,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Topics/Declaring functionality with interfaces/Area of a circle" />
+            <option value="$PROJECT_DIR$/Topics/Declaring functionality with interfaces/Interface methods" />
+            <option value="$PROJECT_DIR$/Topics/Declaring functionality with interfaces/Marker interface" />
+            <option value="$PROJECT_DIR$/Topics/Declaring functionality with interfaces/Mutable geometric shapes" />
+            <option value="$PROJECT_DIR$/Topics/Declaring functionality with interfaces/Properties of methods" />
+            <option value="$PROJECT_DIR$/Topics/Declaring functionality with interfaces/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Declaring functionality with interfaces/What does an interface define" />
+            <option value="$PROJECT_DIR$/Topics/Declaring functionality with interfaces/Which methods must be overridden" />
             <option value="$PROJECT_DIR$/Traffic Light (Java)/task" />
             <option value="$PROJECT_DIR$/Traffic Light (Java)/task/build/classes/java" />
             <option value="$PROJECT_DIR$/Traffic Light (Java)/task/build/generated/sources/annotationProcessor/java" />
