@@ -160,5 +160,8 @@ files:
     visible: true
     learner_created: true
 feedback_link: https://hyperskill.org/projects/383/stages/2281/implement#comment
-status: Unchecked
+status: Failed
+feedback:
+  message: Execution failed
+  time: "Fri, 08 Dec 2023 19:43:18 UTC"
 record: -1

@@ -53,11 +53,39 @@ public class GameBoard {
         String userInput = scanner.nextLine();
         //validate input
         userCoordinates = validateUserInput(userInput, errorMessage, userCoordinates);
-        for (int point: userCoordinates) {
-            System.out.println(point);
-        };
+        //check if move was valid
+        if (userCoordinates[0] == 0 && userCoordinates[1] == 0) {
+            return;
+        } else {
+            if (!validateMove(userCoordinates)) {
+                return;
+            }
+        }
+        //output the length of the ship if valid move
+        int shipLength = calculateShipLength(userCoordinates);
+        System.out.println("Length: " + shipLength);
+
     }
 
+    public int calculateShipLength(int[] userCoordinates) {
+        int length, x, y;
+        x = userCoordinates[0] - userCoordinates[2];
+        y = userCoordinates[1] - userCoordinates[3];
+        length = Math.abs(x) + Math.abs(y) + 1;
+        return length;
+    }
+
+    //method checks if user coordinates are out of bounds
+    public boolean validateMove(int[] userCoordinates) {
+        for (int i = 0; i < userCoordinates.length; i++) {
+            if (userCoordinates[i] < 1 || userCoordinates[i] > 11) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //method checks if userinput is not correct length or not able to be parsed to an int from char
     public int[] validateUserInput(String userInput, String errorMessage, int[] userCoordinates ) {
         userInput = userInput.trim().toUpperCase();
         if (userInput.length() != 5) {
@@ -70,7 +98,12 @@ public class GameBoard {
                userCoordinates[2] = userInput.charAt(3);
                userCoordinates[3] = userInput.charAt(4);
             } catch (Exception e) {
-                throw new RuntimeException(e);
+            System.out.println(errorMessage);
+            userCoordinates[0] = 0;
+            userCoordinates[1] = 0;
+            userCoordinates[2] = 0;
+            userCoordinates[3] = 0;
+            return userCoordinates;
             }
         }
         return userCoordinates;
