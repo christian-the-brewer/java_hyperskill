@@ -57,7 +57,9 @@ public class GameBoard {
         if (userCoordinates[0] == 0 && userCoordinates[1] == 0) {
             return;
         } else {
+            userCoordinates = translateCoordinates(userCoordinates);
             if (!validateMove(userCoordinates)) {
+                System.out.println(errorMessage);
                 return;
             }
         }
@@ -65,6 +67,22 @@ public class GameBoard {
         int shipLength = calculateShipLength(userCoordinates);
         System.out.println("Length: " + shipLength);
 
+    }
+
+    //method for printing usercoordinates
+    public void printCoordinates(int[] userCoordinates) {
+        for (int element: userCoordinates
+             ) {
+            System.out.println(element);
+        }
+    }
+
+    //method translates usercoordinates from char values to 1-11
+    public int[] translateCoordinates(int[] userCoordinates) {
+        int charToIntValue = 64;
+        userCoordinates[0] = userCoordinates[0] - charToIntValue;
+        userCoordinates[2] = userCoordinates[2] - charToIntValue;
+        return userCoordinates;
     }
 
     public int calculateShipLength(int[] userCoordinates) {
@@ -88,15 +106,19 @@ public class GameBoard {
     //method checks if userinput is not correct length or not able to be parsed to an int from char
     public int[] validateUserInput(String userInput, String errorMessage, int[] userCoordinates ) {
         userInput = userInput.trim().toUpperCase();
+        char temp;
         if (userInput.length() != 5) {
             System.out.println(errorMessage);
         } else {
             try {
                 //get chars at index and change to ints
                userCoordinates[0] = userInput.charAt(0);
-               userCoordinates[1] = userInput.charAt(1);
+               temp = userInput.charAt(1);
+               userCoordinates[1] = Character.getNumericValue(temp);
                userCoordinates[2] = userInput.charAt(3);
-               userCoordinates[3] = userInput.charAt(4);
+               temp = userInput.charAt(4);
+               userCoordinates[3] = Character.getNumericValue(temp);
+
             } catch (Exception e) {
             System.out.println(errorMessage);
             userCoordinates[0] = 0;
