@@ -66,8 +66,15 @@ public class GameBoard {
         //output the length of the ship if valid move
         int shipLength = calculateShipLength(userCoordinates);
         System.out.println("Length: " + shipLength);
+        //create new Ship now that we know the length
+        Ship ship1 = new Ship(shipLength, userCoordinates);
+        ship1.printSections();
 
     }
+
+    //method for printing ship parts
+    //should ships be a class? yes
+    
 
     //method for printing usercoordinates
     public void printCoordinates(int[] userCoordinates) {

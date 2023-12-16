@@ -159,9 +159,12 @@ files:
   - name: src/battleship/GameBoard.java
     visible: true
     learner_created: true
-feedback_link: https://hyperskill.org/projects/383/stages/2281/implement#comment
+  - name: src/battleship/Ship.java
+    visible: true
+    learner_created: true
+feedback_link: https://hyperskill.org/learn/step/35304#comment
 status: Failed
 feedback:
   message: Execution failed
-  time: "Mon, 11 Dec 2023 02:33:24 UTC"
+  time: "Sat, 16 Dec 2023 16:50:34 UTC"
 record: -1
