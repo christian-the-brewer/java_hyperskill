@@ -165,6 +165,6 @@ files:
 feedback_link: https://hyperskill.org/learn/step/35304#comment
 status: Failed
 feedback:
-  message: Execution failed
-  time: "Sat, 16 Dec 2023 16:50:34 UTC"
+  message: Failed to launch checking
+  time: "Sat, 16 Dec 2023 21:08:04 UTC"
 record: -1

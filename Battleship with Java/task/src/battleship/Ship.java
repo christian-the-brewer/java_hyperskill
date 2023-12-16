@@ -24,17 +24,22 @@ public class Ship {
 
     //fills array shipSections with coord of each section
     public void calculateSections() {
-        char x, y;
+        String x, y;
         int subtractionModifier;
         System.out.println("in calculateSection:");
+        System.out.println("[3]" + userCoordinates[3]);
         if (userCoordinates[0] == userCoordinates[2]) {
             //ship lies along x-axis
             //check if ship is running right to left
             subtractionModifier = (userCoordinates[1] > userCoordinates[3]) ?
                     -1 : 1;
             for (int i = 0; i < shipLength; i++) {
-                y = (char) (userCoordinates[0] + 64);
-                x = (char) (userCoordinates[1] + (i * subtractionModifier) + 48);
+                y = Integer.toString(userCoordinates[0]);
+//                y = (char) (userCoordinates[0] + 64);
+                x = Integer.toString(userCoordinates[1] + (i * subtractionModifier));
+//                x = (char) (userCoordinates[1] + (i * subtractionModifier) + 48);
+                System.out.println("x as char:" + x);
+                System.out.println(x);
                 shipSections[i] = String.valueOf(y) + String.valueOf(x);
                 System.out.println(shipSections[i]);
             }
@@ -43,8 +48,10 @@ public class Ship {
             subtractionModifier = (userCoordinates[0] > userCoordinates[2]) ?
                     -1 : 1;
             for (int i = 0; i < shipLength; i++) {
-                y = (char) (userCoordinates[0] + (i * subtractionModifier) + 64);
-                x = (char) (userCoordinates[1] + 48);
+                y = Integer.toString(userCoordinates[0] + (i * subtractionModifier));
+//                y = (char) (userCoordinates[0] + (i * subtractionModifier) + 64);
+                x = Integer.toString(userCoordinates[1]);
+//                x = (char) (userCoordinates[1] + 48);
                 shipSections[i] = String.valueOf(y) + String.valueOf(x);
                 System.out.println(shipSections[i]);
             }

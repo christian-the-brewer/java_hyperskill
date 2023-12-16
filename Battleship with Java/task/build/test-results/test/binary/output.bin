@@ -103,4 +103,10 @@ Length: 2
 J ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 #Enter the coordinates of the ship:
 	> G8 G10
-Error!
+
+Length: 3
+in calculateSection:
+G8
+G9
+G:
+Parts:

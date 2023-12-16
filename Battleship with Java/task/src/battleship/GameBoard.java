@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class GameBoard {
 
     private String[][] board = new String[11][11];
+    private int y1, y2, x1, x2;
+    private int[] userCoordinates = new int[4];
     public GameBoard() {
         setInitialGameBoard();
     }
@@ -46,34 +48,63 @@ public class GameBoard {
     //placeShip will take in two string coordinates and check if they are valid, then print
     //the length of the ship and the points that make up the ship
     public void placeShip(Scanner scanner) {
-        int[] userCoordinates = new int[4]; // for holding coordinates on the board
+        int shipLength;
+//        int[] userCoordinates = new int[4]; // for holding coordinates on the board
+//        String errorMessage = "Error!";
+//        //prompt user for coordinates
+//        System.out.println("Enter the coordinates of the ship:");
+//        String userInput = scanner.nextLine();
+//        //validate input
+//        userCoordinates = validateUserInput(userInput, errorMessage, userCoordinates);
+//        //check if move was valid
+//        if (userCoordinates[0] == 0 && userCoordinates[1] == 0) {
+//            return;
+//        } else {
+//            userCoordinates = translateCoordinates(userCoordinates);
+//            if (!validateMove(userCoordinates)) {
+//                System.out.println(errorMessage);
+//                return;
+//            }
+//        }
+//        //output the length of the ship if valid move
+//        int shipLength = calculateShipLength(userCoordinates);
+//        System.out.println("Length: " + shipLength);
+//        //create new Ship now that we know the length
+//        Ship ship1 = new Ship(shipLength, userCoordinates);
+//        ship1.printSections();
         String errorMessage = "Error!";
-        //prompt user for coordinates
         System.out.println("Enter the coordinates of the ship:");
-        String userInput = scanner.nextLine();
-        //validate input
-        userCoordinates = validateUserInput(userInput, errorMessage, userCoordinates);
-        //check if move was valid
-        if (userCoordinates[0] == 0 && userCoordinates[1] == 0) {
-            return;
-        } else {
-            userCoordinates = translateCoordinates(userCoordinates);
-            if (!validateMove(userCoordinates)) {
-                System.out.println(errorMessage);
-                return;
-            }
+        //take in user coordinates
+        try {
+            StringBuilder coord1 = new StringBuilder(scanner.next().trim().toUpperCase());
+            StringBuilder coord2 = new StringBuilder(scanner.next().trim().toUpperCase());
+            //take first alphabetic value
+            this.y1 = coord1.charAt(0);
+            coord1.deleteCharAt(0);
+            this.y2 = coord2.charAt(0);
+            coord2.deleteCharAt(0);
+            //convert remaining userinput to int for x coordinate
+            this.x1 = Integer.parseInt(coord1.toString());
+            this.x2 = Integer.parseInt(coord2.toString());
+        } catch (Exception e) {
+            System.out.println(errorMessage);
         }
-        //output the length of the ship if valid move
-        int shipLength = calculateShipLength(userCoordinates);
+        userCoordinates[0] = y1;
+        userCoordinates[1] = x1;
+        userCoordinates[2] = y2;
+        userCoordinates[3] = x2;
+        translateCoordinates(userCoordinates);
+        //check if coordinates are valid
+        if (!validateMove(userCoordinates)) {
+            System.out.println(errorMessage);
+            return;
+        }
+        shipLength = calculateShipLength(userCoordinates);
         System.out.println("Length: " + shipLength);
-        //create new Ship now that we know the length
         Ship ship1 = new Ship(shipLength, userCoordinates);
         ship1.printSections();
 
     }
-
-    //method for printing ship parts
-    //should ships be a class? yes
     
 
     //method for printing usercoordinates
@@ -103,7 +134,7 @@ public class GameBoard {
     //method checks if user coordinates are out of bounds
     public boolean validateMove(int[] userCoordinates) {
         for (int i = 0; i < userCoordinates.length; i++) {
-            if (userCoordinates[i] < 1 || userCoordinates[i] > 11) {
+            if (userCoordinates[i] < 1 || userCoordinates[i] > 10) {
                 return false;
             }
         }
