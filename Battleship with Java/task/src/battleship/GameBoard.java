@@ -138,6 +138,9 @@ public class GameBoard {
                 return false;
             }
         }
+        if (userCoordinates[0] != userCoordinates[2] && userCoordinates[1] != userCoordinates[3]) {
+            return false;
+        }
         return true;
     }
 
